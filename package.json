@@ -1,0 +1,17 @@
+{
+  "name": "nodes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "v1": "npx tsc; node experiment.js",
+    "v2": "npx tsc; node index.js test.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  }
+}

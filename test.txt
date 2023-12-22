@@ -1,0 +1,49 @@
+AA -> BB
+BB -> CC
+CC -> DD
+CC <-- XX
+CC --> YY
+
+AA
+===
+This is task AA
+
+
+BB
+===
+This is task BB
+
+CC
+<==
+Explains the connection to the left
+
+CC
+==>
+Explains the connection to the right
+```
+
+If I had rearranged the lines so they're not in the same order, can you still build the correct linked list?
+```
+BB -> CC
+AA -> BB
+CC <-- XX
+CC -> DD
+CC --> YY
+
+AA
+===
+This is task AA
+
+
+BB
+===
+This is task BB
+
+CC
+<==
+Explains the connection to the left
+
+CC
+==>
+Explains the connection to the right
+```
