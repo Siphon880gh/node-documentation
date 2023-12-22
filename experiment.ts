@@ -1,102 +1,163 @@
-// Define the DNode type with prev and next arrays of DNode or null
 type DNode = {
     prev: (DNode | null)[];
     next: (DNode | null)[];
-    data?: {
-      text: string;
-      textLeft: string;
-      textRight: string;
+    data: {
+      name: string;        // Mandatory 'name' property
+      text?: string;       // Optional 'text' property
+      textLeft?: string;   // Optional 'textLeft' property
+      textRight?: string;  // Optional 'textRight' property
     };
   };
   
-  // DNode 1: Head of List 1
+  function readableStringify(node: DNode, visited = new Set<DNode>(), depth = 0): string {
+    if (visited.has(node)) {
+      return 'Circular Reference';
+    }
+  
+    visited.add(node);
+  
+    let indent = ' '.repeat(depth * 2);
+    let nodeString = `${indent}DNode {\n`;
+  
+    indent = ' '.repeat((depth + 1) * 2);
+  
+    // Handle the mandatory data property and its optional sub-properties
+    nodeString += `${indent}data: {\n`;
+    nodeString += `${indent}  name: "${node.data.name}",\n`;
+    nodeString += node.data.text ? `${indent}  text: "${node.data.text}",\n` : '';
+    nodeString += node.data.textLeft ? `${indent}  textLeft: "${node.data.textLeft}",\n` : '';
+    nodeString += node.data.textRight ? `${indent}  textRight: "${node.data.textRight}"\n` : '';
+    nodeString = nodeString.trimEnd().endsWith(',') ? nodeString.trimEnd().slice(0, -1) + '\n' : nodeString;
+    nodeString += `${indent}},\n`;
+  
+    // Handle the prev array
+    nodeString += `${indent}prev: [`;
+    nodeString += node.prev.map(n => (n ? readableStringify(n, visited, depth + 2) : 'null')).join(', ');
+    nodeString += `],\n`;
+  
+    // Handle the next array
+    nodeString += `${indent}next: [`;
+    nodeString += node.next.map(n => (n ? readableStringify(n, visited, depth + 2) : 'null')).join(', ');
+    nodeString += `]\n`;
+  
+    nodeString += `${' '.repeat(depth * 2)}}`; // Close the DNode block
+  
+    return nodeString;
+  }
+  
+  // Example usage:
   let dNode1: DNode = {
     prev: [null],
     next: [],
     data: {
+      name: "Node 1",  
       text: "Node 1 Text",
       textLeft: "Left Text for Node 1",
       textRight: "Right Text for Node 1"
     }
   };
   
-  
-  // DNode 2: Part of List 1 and head of List 2
   let dNode2: DNode = {
-    prev: [dNode1], // Primary connection to dNode1, part of List 1
-    next: []        // Will be filled with the next nodes (dNode3 and anotherList's node)
+    prev: [dNode1],
+    next: [],
+    data: {
+      name: "Node 2",
+      // text, textLeft, and textRight are omitted for this node
+    }
   };
   
-  // DNode 3: Tail of List 1
-  let dNode3: DNode = {
-    prev: [dNode2], // Primary connection to dNode2, part of List 1
-    next: [null]    // Indicates that this is the tail of the primary linked list
+  // Connect the nodes
+  dNode1.next.push(dNode2);
+  
+  
+// Create a new separate linked list (List 2)
+let dNode3: DNode = {
+    prev: [null],
+    next: [],
+    data: {
+      name: "Node 3",
+      text: "Node 3 Text",
+      textLeft: "Left Text for Node 3"
+    }
   };
   
-  // Connect nodes for List 1
-  dNode1.next.push(dNode2); // dNode1 -> dNode2
-  dNode2.next.push(dNode3); // dNode2 -> dNode3
-  
-  // Example of a DNode in a separate List 2, where DNode 2 is also the head
-  let anotherDListNode: DNode = {
-    prev: [dNode2, null], // Connected to dNode2 as a secondary list, null indicates it's a head in another list
-    next: [null]          // Indicates that this is the tail of the secondary list
+  let dNode4: DNode = {
+    prev: [dNode3],
+    next: [null],  // This indicates that dNode4 is the tail of List 2
+    data: {
+      name: "Node 4",
+      textRight: "Right Text for Node 4"
+    }
   };
   
-  // Connecting the separate node to DNode 2's next
-  dNode2.next.push(anotherDListNode); // dNode2 -> anotherDListNode (secondary connection)
+  // Connect nodes for the second list
+  dNode3.next.push(dNode4);
   
-  // Now, dNode1 and dNode3 form the primary linked list (List 1), with dNode2 being a part of it but also the head of another list (List 2) through its connection to anotherDListNode.
-//   console.log(JSON.stringify(dNode1, null, 0))
-//   console.log(JSON.stringify(dNode1))
+  // Create another linked list (List 3) that intersects with List 1 and List 2
+  let dNode5: DNode = {
+    prev: [null],
+    next: [dNode2, dNode4],  // Intersecting with dNode2 from List 1 and dNode4 from List 2
+    data: {
+      name: "Node 5",
+      text: "Node 5 is connected to Node 2 and Node 4"
+    }
+  };
+  
+  // Update connections for the intersecting nodes
+  dNode2.next.push(dNode5);  // Connecting dNode2 to dNode5
+  dNode4.prev.push(dNode5);  // Connecting dNode4 to dNode5
 
-  function safeStringify(node: DNode, visited = new Set()): string {
-    // Check for circular reference
-    if (visited.has(node)) {
-      return 'Circular Reference';
-    }
+  // Array to hold the head nodes of each list
+    let heads: DNode[] = [dNode1, dNode3, dNode5];
+
+    // Logging the structure starting from each head node
+    console.log("Total linked lists: ", heads.length);
+    heads.forEach((head, index) => {
+    console.log(`\nList ${index + 1} from ${head.data.name}:`);
+    console.log(readableStringify(head));
+    });
   
-    visited.add(node);
-  
-    // Create a simple object to represent the node
-    const simpleNode: any = {};
-    simpleNode.prev = node.prev.map(n => n ? safeStringify(n, visited) : null);
-    simpleNode.next = node.next.map(n => n ? safeStringify(n, visited) : null);
-  
-    return JSON.stringify(simpleNode);
-  } // safeStringify
-  
-  function readableStringify(node: DNode, visited = new Set(), depth = 0): string {
-    if (visited.has(node)) {
-      return 'Circular Reference';
-    }
-  
-    visited.add(node);
-  
-    let indent = ' '.repeat(depth * 2); // Indentation for readability
-    let nodeString = `${indent}DNode {\n`;
-  
-    indent = ' '.repeat((depth + 1) * 2); // Increase indent for properties
-  
-    // Handle the data part only if it exists
-    if (node.data) {
-      nodeString += `${indent}data: {\n`;
-      nodeString += `${indent}  text: "${node.data.text}",\n`;
-      nodeString += `${indent}  textLeft: "${node.data.textLeft}",\n`;
-      nodeString += `${indent}  textRight: "${node.data.textRight}"\n`;
-      nodeString += `${indent}},\n`;
-    } else {
-      nodeString += `${indent}data: null,\n`;
-    }
-  
-    // Process prev and next arrays as before...
-    // ...
-  
-    return nodeString;
-  }
-  
-  
+  // Logging the structure starting from dNode1 and dNode3
+  console.log("List 1 from dNode1:");
   console.log(readableStringify(dNode1));
   
+  console.log("\nList 2 from dNode3:");
+  console.log(readableStringify(dNode3));
+  
+  console.log("\nList 3 from dNode5:");
+  console.log(readableStringify(dNode5));
 
-//   console.log(safeStringify(dNode1));
+  // HTML PORTION
+
+
+function renderNode(node:DNode, listNumber:Number, visited = new Set()) {
+  if (visited.has(node)) return ''; // Avoid infinite loops in circular structures
+
+  visited.add(node);
+
+  // Determine the class for the node's border color
+  let classList = `node-box list-${listNumber}`;
+
+  // Check if the node is an intersection and adjust the classList accordingly
+  // ...
+
+  let content = `<div class="${classList}">`;
+  content += `<strong>${node.data.name}</strong><br>`; // Display the node's name
+  if (node.data.text) content += `${node.data.text}<br>`;
+  if (node.data.textLeft) content += `${node.data.textLeft}<br>`;
+  if (node.data.textRight) content += `${node.data.textRight}<br>`;
+
+  // Render the 'next' nodes recursively
+  node.next.forEach(nextNode => {
+    if (nextNode) content += renderNode(nextNode, listNumber, visited);
+  });
+
+  content += `</div>`;
+  return content;
+}
+
+// Render each list and append it to the container
+heads.forEach((head, index) => {
+  let listContent = renderNode(head, index + 1);
+  document.getElementById('linkedListsContainer')!.innerHTML += listContent;
+});
