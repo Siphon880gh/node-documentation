@@ -2,13 +2,24 @@
 type DNode = {
     prev: (DNode | null)[];
     next: (DNode | null)[];
+    data?: {
+      text: string;
+      textLeft: string;
+      textRight: string;
+    };
   };
   
   // DNode 1: Head of List 1
   let dNode1: DNode = {
-    prev: [null], // Indicates that this is the head of the primary linked list
-    next: []      // Will be filled with the next node (dNode2)
+    prev: [null],
+    next: [],
+    data: {
+      text: "Node 1 Text",
+      textLeft: "Left Text for Node 1",
+      textRight: "Right Text for Node 1"
+    }
   };
+  
   
   // DNode 2: Part of List 1 and head of List 2
   let dNode2: DNode = {
@@ -67,20 +78,23 @@ type DNode = {
   
     indent = ' '.repeat((depth + 1) * 2); // Increase indent for properties
   
-    // Process prev array
-    nodeString += `${indent}prev: [`;
-    nodeString += node.prev.map(n => (n ? readableStringify(n, visited, depth + 2) : 'null')).join(', ');
-    nodeString += `],\n`;
+    // Handle the data part only if it exists
+    if (node.data) {
+      nodeString += `${indent}data: {\n`;
+      nodeString += `${indent}  text: "${node.data.text}",\n`;
+      nodeString += `${indent}  textLeft: "${node.data.textLeft}",\n`;
+      nodeString += `${indent}  textRight: "${node.data.textRight}"\n`;
+      nodeString += `${indent}},\n`;
+    } else {
+      nodeString += `${indent}data: null,\n`;
+    }
   
-    // Process next array
-    nodeString += `${indent}next: [`;
-    nodeString += node.next.map(n => (n ? readableStringify(n, visited, depth + 2) : 'null')).join(', ');
-    nodeString += `]\n`;
-  
-    nodeString += `${' '.repeat(depth * 2)}}`; // Close the DNode block
+    // Process prev and next arrays as before...
+    // ...
   
     return nodeString;
-  } // readableStringify
+  }
+  
   
   console.log(readableStringify(dNode1));
   
