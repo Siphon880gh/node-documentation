@@ -35,7 +35,8 @@ let dNode1 = {
         text: "Node 1 Text",
         textLeft: "Left Text for Node 1",
         textRight: "Right Text for Node 1"
-    }
+    },
+    listMemberships: new Set([1]) // This node is initially part of list 1
 };
 let dNode2 = {
     prev: [dNode1],
@@ -43,7 +44,8 @@ let dNode2 = {
     data: {
         name: "Node 2",
         // text, textLeft, and textRight are omitted for this node
-    }
+    },
+    listMemberships: new Set([])
 };
 // Connect the nodes
 dNode1.next.push(dNode2);
@@ -55,7 +57,8 @@ let dNode3 = {
         name: "Node 3",
         text: "Node 3 Text",
         textLeft: "Left Text for Node 3"
-    }
+    },
+    listMemberships: new Set([2]) // This node is initially part of list 2
 };
 let dNode4 = {
     prev: [dNode3],
@@ -63,7 +66,8 @@ let dNode4 = {
     data: {
         name: "Node 4",
         textRight: "Right Text for Node 4"
-    }
+    },
+    listMemberships: new Set([])
 };
 // Connect nodes for the second list
 dNode3.next.push(dNode4);
@@ -74,7 +78,8 @@ let dNode5 = {
     data: {
         name: "Node 5",
         text: "Node 5 is connected to Node 2 and Node 4"
-    }
+    },
+    listMemberships: new Set([3]) // This node is initially part of list 3
 };
 // Update connections for the intersecting nodes
 dNode2.next.push(dNode5); // Connecting dNode2 to dNode5
@@ -97,24 +102,37 @@ console.log(readableStringify(dNode5));
 // HTML PORTION
 function renderNode(node, listNumber, visited = new Set()) {
     if (visited.has(node))
-        return ''; // Avoid infinite loops in circular structures
+        return '';
     visited.add(node);
+    console.log(`Rendering node: ${node.data.name}`); // Log the node being rendered
     // Determine the class for the node's border color
     let classList = `node-box list-${listNumber}`;
-    // Check if the node is an intersection and adjust the classList accordingly
-    // ...
+    // Determine if the node is an intersection
+    if (node.listMemberships && node.listMemberships.size > 1) {
+        classList += ' intersected';
+    }
     let content = `<div class="${classList}">`;
     content += `<strong>${node.data.name}</strong><br>`; // Display the node's name
-    if (node.data.text)
+    // Check and append text properties if they exist
+    if (node.data.text) {
+        console.log(`Text for ${node.data.name}: ${node.data.text}`); // Log the text
         content += `${node.data.text}<br>`;
-    if (node.data.textLeft)
+    }
+    if (node.data.textLeft) {
+        console.log(`TextLeft for ${node.data.name}: ${node.data.textLeft}`); // Log the textLeft
         content += `${node.data.textLeft}<br>`;
-    if (node.data.textRight)
+    }
+    if (node.data.textRight) {
+        console.log(`TextRight for ${node.data.name}: ${node.data.textRight}`); // Log the textRight
         content += `${node.data.textRight}<br>`;
+    }
     // Render the 'next' nodes recursively
     node.next.forEach(nextNode => {
-        if (nextNode)
+        if (nextNode) {
+            nextNode.listMemberships = nextNode.listMemberships || new Set();
+            nextNode.listMemberships.add(listNumber);
             content += renderNode(nextNode, listNumber, visited);
+        }
     });
     content += `</div>`;
     return content;
