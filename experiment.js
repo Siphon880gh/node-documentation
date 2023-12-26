@@ -123,21 +123,21 @@ function renderNode(node, listNumber, visited = new Set()) {
     
       ${!((_d = (_c = node.data) === null || _c === void 0 ? void 0 : _c.text) === null || _d === void 0 ? void 0 : _d.length) ? "" : (() => {
         return `<div class="node-text">
-                  <i class="fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.text}</span>
                 </div>
         `;
     })()}
       ${!((_f = (_e = node.data) === null || _e === void 0 ? void 0 : _e.textLeft) === null || _f === void 0 ? void 0 : _f.length) ? "" : (() => {
         return `<div class="node-textLeft">
-                  <i class="fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.textLeft}</span>
                 </div>
         `;
     })()}
       ${!((_h = (_g = node.data) === null || _g === void 0 ? void 0 : _g.textRight) === null || _h === void 0 ? void 0 : _h.length) ? "" : (() => {
         return `<div class="node-textRight">
-                  <i class="fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.textRight}</span>
                 </div>
         `;
