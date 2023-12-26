@@ -1,49 +1,33 @@
-AA -> BB
-BB -> CC
-CC -> DD
-CC <-- XX
-CC --> YY
+Node: A
+text: This node is about
+textLeft: The left node connection is about...
+textRight: The right node connection is about...
 
-AA
-===
-This is task AA
+Node: B
+text: This node is about
+textLeft: The left node connection is about...
+textRight: The right node connection is about...
 
+Node: C
+text: This node is about
+textLeft: The left node connection is about...
+textRight: The right node connection is about...
 
-BB
-===
-This is task BB
+Node: D
+text: This node is about
+textLeft: The left node connection is about...
+textRight: The right node connection is about...
 
-CC
-<==
-Explains the connection to the left
+Node: E
+text: This node is about
+textLeft: The left node connection is about...
+textRight: The right node connection is about...
 
-CC
-==>
-Explains the connection to the right
-```
+Node: F
+text: This node is about
+textLeft: The left node connection is about...
+textRight: The right node connection is about...
 
-If I had rearranged the lines so they're not in the same order, can you still build the correct linked list?
-```
-BB -> CC
-AA -> BB
-CC <-- XX
-CC -> DD
-CC --> YY
-
-AA
-===
-This is task AA
-
-
-BB
-===
-This is task BB
-
-CC
-<==
-Explains the connection to the left
-
-CC
-==>
-Explains the connection to the right
-```
+A -> E -> F
+B -> C -> D -> E
+C -> F

@@ -33,7 +33,7 @@
 </head>
 <body>
   <h3>Node Documentation Tool</h3>
-  <p>By Weng. A new way to document modern software that have users performing visual scripting by connecting nodes: Unreal Engine, Da Vinci Resolve, Tech Stacks, etc. Their documentations are too linear and scattered. Use this interactive venn diagram to reference connections between nodes. Click the hand pointers for explanations of a previous/next connection or the current node. As a venn diagram further contains another diagram, it's connecting to the right.</p>
+  <p>By Weng Fei Fung. A new way to document modern software that have users performing visual scripting by connecting nodes: Unreal Engine, Da Vinci Resolve, Tech Stacks, etc. Their documentations are too linear and scattered. Use this interactive venn diagram to reference connections between nodes. Click the hand pointers for explanations of a previous/next connection or the current node. As a venn diagram further contains another diagram, it's connecting to the right.</p>
   <p>
     <?php
       include("./global-message.txt");
