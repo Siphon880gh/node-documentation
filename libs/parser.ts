@@ -1,18 +1,17 @@
-
+  // @ts-ignore
+  type DNode = {
+    prev: (DNode | null)[];
+    next: (DNode | null)[];
+    data: {
+      name: string;        // Mandatory 'name' property
+      text?: string;       // Optional 'text' property
+      textLeft?: string;   // Optional 'textLeft' property
+      textRight?: string;  // Optional 'textRight' property
+    };
+    listMemberships: Set<number>; // Tracks which lists the node belongs to
+  };
   
   function parseInput(input: string): [Record<string, DNode>, DNode[]] {
-    // @ts-ignore
-    type DNode = {
-      prev: (DNode | null)[];
-      next: (DNode | null)[];
-      data: {
-        name: string;        // Mandatory 'name' property
-        text?: string;       // Optional 'text' property
-        textLeft?: string;   // Optional 'textLeft' property
-        textRight?: string;  // Optional 'textRight' property
-      };
-      listMemberships: Set<number>; // Tracks which lists the node belongs to
-    };
 
     console.log("Parsing input..."); // Log start of parsing
     // const sections = input.trim().split('\n\n');

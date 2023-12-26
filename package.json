@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+  "devScripts": {
     "v1": "npx tsc; node experiment.js",
     "v1b": "npx tsc; echo 'Open index.html in browser'",
     "v2-hold": "npx tsc; node index.js test.txt"
+  },
+  "scripts": {
+    "start": "npx tsc; node index.js; echo 'Open index.php in php server.'"
   },
   "keywords": [],
   "author": "",

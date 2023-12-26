@@ -6,17 +6,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about A</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of A</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of A</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -29,17 +29,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about E</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of E</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of E</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -52,17 +52,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about F</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of F</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of F</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -75,17 +75,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about B</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of B</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of B</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -98,17 +98,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about C</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of C</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of C</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -121,17 +121,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about D</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of D</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of D</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -144,17 +144,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about E</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of E</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of E</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -167,17 +167,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about F</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of F</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of F</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -190,17 +190,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about C</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of C</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of C</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -213,17 +213,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about D</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of D</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of D</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -236,17 +236,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about E</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of E</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of E</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
@@ -259,17 +259,17 @@
     
       <div class="node-text">
                   <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">This node is about F</span>
+                  <span class="inner-content">This node is about</span>
                 </div>
         
       <div class="node-textLeft">
                   <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The left of F</span>
+                  <span class="inner-content">The left node connection is about...</span>
                 </div>
         
       <div class="node-textRight">
                   <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
-                  <span class="inner-content">The right of F</span>
+                  <span class="inner-content">The right node connection is about...</span>
                 </div>
         
 
