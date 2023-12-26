@@ -33,7 +33,7 @@ let dNode1 = {
     data: {
         name: "Node 1",
         text: "Node 1 Text",
-        textRight: "Text explaining right node connection for Node 1"
+        textRight: "Text explaining right node connection from Node 1"
     },
     listMemberships: new Set([1]) // This node is initially part of list 1
 };
@@ -55,7 +55,7 @@ let dNode3 = {
     data: {
         name: "Node 3",
         text: "Node 3 Text",
-        textRight: "Text explaining right node connection for Node 3"
+        textRight: "Text explaining right node connection from Node 3"
     },
     listMemberships: new Set([2]) // This node is initially part of list 2
 };
@@ -64,7 +64,7 @@ let dNode4 = {
     next: [null], // This indicates that dNode4 is the tail of List 2
     data: {
         name: "Node 4",
-        textLeft: "Text explaining left node connection for Node 4"
+        textLeft: "Text explaining left node connection from Node 4"
     },
     listMemberships: new Set([])
 };

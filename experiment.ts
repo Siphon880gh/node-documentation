@@ -1,3 +1,4 @@
+// @ts-ignore
 type DNode = {
     prev: (DNode | null)[];
     next: (DNode | null)[];
