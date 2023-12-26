@@ -1,1 +1,1 @@
-- In Unreal Engine, knowledge is only shared between direct parent/child.
+- In Unreal Engine, knowledge is only shared between direct parent/child. A bubble containing a smaller bubble is a parent to a direct child.

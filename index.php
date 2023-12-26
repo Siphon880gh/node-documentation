@@ -5,17 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node Documentation Tool</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link href="index.css" rel="stylesheet">
-    <link href="linked-list-colors.css" rel="stylesheet">
-    <link href="tailwind2.no.normalizer.css" rel="stylesheet">
+    <!-- <link href="tailwind2.no.normalizer.css" rel="stylesheet"> -->
+
+    <style>
+      .node-box {
+        display:flex;
+        padding: 10px;
+        margin: 5px;
+        border: 2px solid;
+        min-width: 100px;
+        text-align: center;
+      }
+      /* Add additional styles for intersecting nodes */
+
+      .intersected {
+          background-color: rgba(255, 165, 0, 0.33); /* Orange with 33% opacity */
+      }
+
+      .btn-toggler:not(.active) + .inner-content {
+        display:none;
+      }
+    </style>
 
 </head>
 <body>
   <h3>Node Documentation Tool</h3>
-  <p>By Weng. A new way to document node connections for Unreal Engine, Da Vinci Resolve, Tech Stacks, etc. Click the hand pointers for explanations of a previous/next connection or the current node. As a venn diagram further contains another diagram, it's connecting to the right.</p>
+  <p>By Weng. A new way to document modern software that have users performing visual scripting by connecting nodes: Unreal Engine, Da Vinci Resolve, Tech Stacks, etc. Their documentations are too linear and scattered. Use this interactive venn diagram to reference connections between nodes. Click the hand pointers for explanations of a previous/next connection or the current node. As a venn diagram further contains another diagram, it's connecting to the right.</p>
   <p>
     <?php
       include("./global-message.txt");
@@ -26,6 +44,69 @@
         include("./resulted.php");
       ?>
     </div>
-    <!-- <script src="experiment.js"></script> -->
+    
+
+  <style>
+  .list-1 { border-color: blue; }
+  .list-2 { border-color: green; }
+  .list-3 { border-color: red; }
+  .list-4 { border-color: orange; }
+  .list-5 { border-color: purple; }
+  .list-6 { border-color: teal; }
+  .list-7 { border-color: #FF5733; } /* Pomegranate */
+  .list-8 { border-color: #DAF7A6; } /* Pastel Green */
+  .list-9 { border-color: #C70039; } /* Ruby Red */
+  .list-10 { border-color: #900C3F; } /* Dark Magenta */
+  .list-11 { border-color: #9FE2BF; } /* Sea Green */
+  .list-12 { border-color: #40E0D0; } /* Turquoise */
+  .list-13 { border-color: #6495ED; } /* Cornflower Blue */
+  .list-14 { border-color: #CCCCFF; } /* Lavender Blue */
+  .list-15 { border-color: #FFD700; } /* Gold */
+  .list-16 { border-color: #D2691E; } /* Chocolate */
+  .list-17 { border-color: #FF7F50; } /* Coral */
+  .list-18 { border-color: #DC143C; } /* Crimson */
+  .list-19 { border-color: #00FFFF; } /* Aqua */
+  .list-20 { border-color: #00008B; } /* Dark Blue */
+  .list-21 { border-color: #008B8B; } /* Dark Cyan */
+  .list-22 { border-color: #B8860B; } /* Dark Golden Rod */
+  .list-23 { border-color: #A9A9A9; } /* Dark Gray */
+  .list-24 { border-color: #006400; } /* Dark Green */
+  .list-25 { border-color: #BDB76B; } /* Dark Khaki */
+  .list-26 { border-color: #8B008B; } /* Dark Magenta */
+  .list-27 { border-color: #556B2F; } /* Dark Olive Green */
+  .list-28 { border-color: #FF8C00; } /* Dark Orange */
+  .list-29 { border-color: #9932CC; } /* Dark Orchid */
+  .list-30 { border-color: #8B0000; } /* Dark Red */
+  .list-31 { border-color: #E9967A; } /* Dark Salmon */
+  .list-32 { border-color: #8FBC8F; } /* Dark Sea Green */
+  .list-33 { border-color: #483D8B; } /* Dark Slate Blue */
+  .list-34 { border-color: #2F4F4F; } /* Dark Slate Gray */
+  .list-35 { border-color: #00CED1; } /* Dark Turquoise */
+  .list-36 { border-color: #9400D3; } /* Dark Violet */
+  .list-37 { border-color: #FF1493; } /* Deep Pink */
+  .list-38 { border-color: #00BFFF; } /* Deep Sky Blue */
+  .list-39 { border-color: #696969; } /* Dim Gray */
+  .list-40 { border-color: #1E90FF; } /* Dodger Blue */
+  .list-41 { border-color: #B22222; } /* Firebrick */
+  .list-42 { border-color: #FFFAF0; } /* Floral White */
+  .list-43 { border-color: #228B22; } /* Forest Green */
+  .list-44 { border-color: #FF00FF; } /* Fuchsia */
+  .list-45 { border-color: #DCDCDC; } /* Gainsboro */
+  .list-46 { border-color: #F8F8FF; } /* Ghost White */
+  .list-47 { border-color: #FFD700; } /* Gold */
+  .list-48 { border-color: #DAA520; } /* Golden Rod */
+  .list-49 { border-color: #808080; } /* Gray */
+  .list-50 { border-color: #008000; } /* Green */
+  .list-51 { border-color: #ADFF2F; } /* Green Yellow */
+  .list-52 { border-color: #F0FFF0; } /* Honey Dew */
+  .list-53 { border-color: #FF69B4; } /* Hot Pink */
+  .list-54 { border-color: #CD5C5C; } /* Indian Red */
+  .list-55 { border-color: #4B0082; } /* Indigo */
+  .list-56 { border-color: #FFFFF0; } /* Ivory */
+  .list-57 { border-color: #F0E68C; } /* Khaki */
+  .list-58 { border-color: #FFC300; } /* Sunshine Yellow */
+  .list-59 { border-color: #581845; } /* Dark Purple */
+  .list-60 { border-color: #C0C0C0; } /* Silver */
+  </style>
 </body>
 </html>
