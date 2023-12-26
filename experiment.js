@@ -33,8 +33,7 @@ let dNode1 = {
     data: {
         name: "Node 1",
         text: "Node 1 Text",
-        textLeft: "Left Text for Node 1",
-        textRight: "Right Text for Node 1"
+        textRight: "Text explaining right node connection for Node 1"
     },
     listMemberships: new Set([1]) // This node is initially part of list 1
 };
@@ -56,7 +55,7 @@ let dNode3 = {
     data: {
         name: "Node 3",
         text: "Node 3 Text",
-        textLeft: "Left Text for Node 3"
+        textRight: "Text explaining right node connection for Node 3"
     },
     listMemberships: new Set([2]) // This node is initially part of list 2
 };
@@ -65,7 +64,7 @@ let dNode4 = {
     next: [null], // This indicates that dNode4 is the tail of List 2
     data: {
         name: "Node 4",
-        textRight: "Right Text for Node 4"
+        textLeft: "Text explaining left node connection for Node 4"
     },
     listMemberships: new Set([])
 };
@@ -123,21 +122,21 @@ function renderNode(node, listNumber, visited = new Set()) {
     
       ${!((_d = (_c = node.data) === null || _c === void 0 ? void 0 : _c.text) === null || _d === void 0 ? void 0 : _d.length) ? "" : (() => {
         return `<div class="node-text">
-                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.text}</span>
                 </div>
         `;
     })()}
       ${!((_f = (_e = node.data) === null || _e === void 0 ? void 0 : _e.textLeft) === null || _f === void 0 ? void 0 : _f.length) ? "" : (() => {
         return `<div class="node-textLeft">
-                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.textLeft}</span>
                 </div>
         `;
     })()}
       ${!((_h = (_g = node.data) === null || _g === void 0 ? void 0 : _g.textRight) === null || _h === void 0 ? void 0 : _h.length) ? "" : (() => {
         return `<div class="node-textRight">
-                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.textRight}</span>
                 </div>
         `;

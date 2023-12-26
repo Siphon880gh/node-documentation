@@ -1,0 +1,17 @@
+.node-box {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid;
+    min-width: 100px;
+    text-align: center;
+  }
+  /* Add additional styles for intersecting nodes */
+
+  .intersected {
+      background-color: rgba(255, 165, 0, 0.33); /* Orange with 33% opacity */
+  }
+
+  .btn-toggler:not(.active) + .inner-content {
+    display:none;
+  }

@@ -53,8 +53,7 @@ type DNode = {
     data: {
       name: "Node 1",  
       text: "Node 1 Text",
-      textLeft: "Left Text for Node 1",
-      textRight: "Right Text for Node 1"
+      textRight: "Text explaining right node connection from Node 1"
     },
     listMemberships: new Set([1]) // This node is initially part of list 1
   };
@@ -80,7 +79,7 @@ let dNode3: DNode = {
     data: {
       name: "Node 3",
       text: "Node 3 Text",
-      textLeft: "Left Text for Node 3"
+      textRight: "Text explaining right node connection from Node 3"
     },
     listMemberships: new Set([2]) // This node is initially part of list 2
   };
@@ -90,7 +89,7 @@ let dNode3: DNode = {
     next: [null],  // This indicates that dNode4 is the tail of List 2
     data: {
       name: "Node 4",
-      textRight: "Right Text for Node 4"
+      textLeft: "Text explaining left node connection from Node 4"
     },
     listMemberships: new Set([])
   };
@@ -162,7 +161,7 @@ let dNode3: DNode = {
     
       ${!node.data?.text?.length?"":(()=>{
         return `<div class="node-text">
-                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-hand-point-up" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.text}</span>
                 </div>
         `
@@ -170,7 +169,7 @@ let dNode3: DNode = {
     }
       ${!node.data?.textLeft?.length?"":(()=>{
         return `<div class="node-textLeft">
-                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-hand-point-left" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.textLeft}</span>
                 </div>
         `
@@ -178,7 +177,7 @@ let dNode3: DNode = {
     }
       ${!node.data?.textRight?.length?"":(()=>{
         return `<div class="node-textRight">
-                  <i class="btn-toggler fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <i class="btn-toggler fa fa-hand-point-right" onclick="event.target.classList.toggle('active');"></i>
                   <span class="inner-content">${node.data.textRight}</span>
                 </div>
         `
