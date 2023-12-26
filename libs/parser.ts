@@ -1,17 +1,19 @@
-// @ts-ignore
-type DNode = {
-    prev: (DNode | null)[];
-    next: (DNode | null)[];
-    data: {
-      name: string;        // Mandatory 'name' property
-      text?: string;       // Optional 'text' property
-      textLeft?: string;   // Optional 'textLeft' property
-      textRight?: string;  // Optional 'textRight' property
-    };
-    listMemberships: Set<number>; // Tracks which lists the node belongs to
-  };
+
   
-  function parseInput(input: string): Record<string, DNode> {
+  function parseInput(input: string): [Record<string, DNode>, DNode[]] {
+    // @ts-ignore
+    type DNode = {
+      prev: (DNode | null)[];
+      next: (DNode | null)[];
+      data: {
+        name: string;        // Mandatory 'name' property
+        text?: string;       // Optional 'text' property
+        textLeft?: string;   // Optional 'textLeft' property
+        textRight?: string;  // Optional 'textRight' property
+      };
+      listMemberships: Set<number>; // Tracks which lists the node belongs to
+    };
+
     console.log("Parsing input..."); // Log start of parsing
     // const sections = input.trim().split('\n\n');
     const sections = input.trim().split(/\n\s*\n/);
@@ -20,6 +22,7 @@ type DNode = {
     const connectionSection = sections[sections.length - 1];
   
     const nodes: Record<string, DNode> = {};
+    let heads:DNode[] = [];
   
     console.log(`Found ${nodeSections.length} node sections.`); // Log the count of node sections found
   
@@ -61,6 +64,10 @@ type DNode = {
       const currentListNumber = listIndex + 1;
   
       for (let i = 0; i < parts.length - 1; i++) {
+        if(i===0) {
+          heads.push(nodes[parts[i]]);
+        }
+
         const currentNode = nodes[parts[i]];
         const nextNode = nodes[parts[i + 1]];
   
@@ -80,46 +87,9 @@ type DNode = {
       }
     });
   
-    return nodes;
+    return [nodes, heads];
   } // parseInput
-  
-  // Example usage
-  const input = `Node: A
-  text: This node is about A
-  textLeft: The left of A
-  textRight: The right of A
-  
-  Node: B
-  text: This node is about B
-  textLeft: The left of B
-  textRight: The right of B
-  
-  Node: C
-  text: This node is about C
-  textLeft: The left of C
-  textRight: The right of C
-  
-  Node: D
-  text: This node is about D
-  textLeft: The left of D
-  textRight: The right of D
-  
-  Node: E
-  text: This node is about E
-  textLeft: The left of E
-  textRight: The right of E
-  
-  Node: F
-  text: This node is about F
-  textLeft: The left of F
-  textRight: The right of F
-  
-  A -> E -> F
-  B -> C -> D -> E
-  C -> F`;
-  
-  const nodes = parseInput(input);
-  console.log(nodes);
-  
-  // Note: You'll need to implement the logic to determine the appropriate list numbers for nodes.
-  
+
+  module.exports = {
+    parseInput
+  }

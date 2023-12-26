@@ -27,77 +27,77 @@ function readableStringify(node, visited = new Set(), depth = 0) {
     return nodeString;
 }
 // Example usage:
-let dNode1 = {
-    prev: [null],
-    next: [],
-    data: {
-        name: "Node 1",
-        text: "Node 1 Text",
-        textRight: "Text explaining right node connection from Node 1"
-    },
-    listMemberships: new Set([1]) // This node is initially part of list 1
-};
-let dNode2 = {
-    prev: [dNode1],
-    next: [],
-    data: {
-        name: "Node 2",
-        // text, textLeft, and textRight are omitted for this node
-    },
-    listMemberships: new Set([])
-};
-// Connect the nodes
-dNode1.next.push(dNode2);
-// Create a new separate linked list (List 2)
-let dNode3 = {
-    prev: [null],
-    next: [],
-    data: {
-        name: "Node 3",
-        text: "Node 3 Text",
-        textRight: "Text explaining right node connection from Node 3"
-    },
-    listMemberships: new Set([2]) // This node is initially part of list 2
-};
-let dNode4 = {
-    prev: [dNode3],
-    next: [null], // This indicates that dNode4 is the tail of List 2
-    data: {
-        name: "Node 4",
-        textLeft: "Text explaining left node connection from Node 4"
-    },
-    listMemberships: new Set([])
-};
-// Connect nodes for the second list
-dNode3.next.push(dNode4);
-// Create another linked list (List 3) that intersects with List 1 and List 2
-let dNode5 = {
-    prev: [null],
-    next: [dNode2, dNode4], // Intersecting with dNode2 from List 1 and dNode4 from List 2
-    data: {
-        name: "Node 5",
-        text: "Node 5 is connected to Node 2 and Node 4"
-    },
-    listMemberships: new Set([3]) // This node is initially part of list 3
-};
-// Update connections for the intersecting nodes
-dNode2.next.push(dNode5); // Connecting dNode2 to dNode5
-dNode4.prev.push(dNode5); // Connecting dNode4 to dNode5
-// Array to hold the head nodes of each list
-let heads = [dNode1, dNode3, dNode5];
-// Logging the structure starting from each head node
-console.log("Total linked lists: ", heads.length);
-heads.forEach((head, index) => {
-    console.log(`\nList ${index + 1} from ${head.data.name}:`);
-    console.log(readableStringify(head));
-});
-// Logging the structure starting from dNode1 and dNode3
-console.log("List 1 from dNode1:");
-console.log(readableStringify(dNode1));
-console.log("\nList 2 from dNode3:");
-console.log(readableStringify(dNode3));
-console.log("\nList 3 from dNode5:");
-console.log(readableStringify(dNode5));
+//   let dNode1: DNode = {
+//     prev: [null],
+//     next: [],
+//     data: {
+//       name: "Node 1",  
+//       text: "Node 1 Text",
+//       textRight: "Text explaining right node connection from Node 1"
+//     },
+//     listMemberships: new Set([1]) // This node is initially part of list 1
+//   };
+//   let dNode2: DNode = {
+//     prev: [dNode1],
+//     next: [],
+//     data: {
+//       name: "Node 2",
+//       // text, textLeft, and textRight are omitted for this node
+//     },
+//     listMemberships: new Set([])
+//   };
+//   // Connect the nodes
+//   dNode1.next.push(dNode2);
+// // Create a new separate linked list (List 2)
+// let dNode3: DNode = {
+//     prev: [null],
+//     next: [],
+//     data: {
+//       name: "Node 3",
+//       text: "Node 3 Text",
+//       textRight: "Text explaining right node connection from Node 3"
+//     },
+//     listMemberships: new Set([2]) // This node is initially part of list 2
+//   };
+//   let dNode4: DNode = {
+//     prev: [dNode3],
+//     next: [null],  // This indicates that dNode4 is the tail of List 2
+//     data: {
+//       name: "Node 4",
+//       textLeft: "Text explaining left node connection from Node 4"
+//     },
+//     listMemberships: new Set([])
+//   };
+//   // Connect nodes for the second list
+//   dNode3.next.push(dNode4);
+//   // Create another linked list (List 3) that intersects with List 1 and List 2
+//   let dNode5: DNode = {
+//     prev: [null],
+//     next: [dNode2, dNode4],  // Intersecting with dNode2 from List 1 and dNode4 from List 2
+//     data: {
+//       name: "Node 5",
+//       text: "Node 5 is connected to Node 2 and Node 4"
+//     },
+//     listMemberships: new Set([3]) // This node is initially part of list 3
+//   };
+//   // Update connections for the intersecting nodes
+//   dNode2.next.push(dNode5);  // Connecting dNode2 to dNode5
+//   dNode4.prev.push(dNode5);  // Connecting dNode4 to dNode5
+//   // Array to hold the head nodes of each list
+//     let heads: DNode[] = [dNode1, dNode3, dNode5];
+//     // Logging the structure starting from each head node
+//     console.log("Total linked lists: ", heads.length);
+//     heads.forEach((head, index) => {
+//     console.log(`\nList ${index + 1} from ${head.data.name}:`);
+//     console.log(readableStringify(head));
+//     });
+//   // Logging the structure starting from dNode1 and dNode3
+//   console.log("List 1 from dNode1:");
+//   console.log(readableStringify(dNode1));
+//   console.log("\nList 2 from dNode3:");
+//   console.log(readableStringify(dNode3));
+//   console.log("\nList 3 from dNode5:");
+//   console.log(readableStringify(dNode5));
 // HTML PORTION
 function renderNode(node, listNumber, visited = new Set()) {
     var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -169,8 +169,16 @@ function renderNode(node, listNumber, visited = new Set()) {
     content += `</div>`;
     return content;
 }
-// Render each list and append it to the container
-heads.forEach((head, index) => {
-    let listContent = renderNode(head, index + 1);
-    document.getElementById('linkedListsContainer').innerHTML += listContent;
-});
+function createHTML(heads) {
+    let html = "";
+    // Render each list and append it to the container
+    heads.forEach((head, index) => {
+        let listContent = renderNode(head, index + 1);
+        // document.getElementById('linkedListsContainer')!.innerHTML += listContent;
+        html += listContent;
+    });
+    return html;
+} // createHTML
+module.exports = {
+    createHTML
+};

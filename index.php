@@ -21,7 +21,11 @@
       include("./global-message.txt");
     ?>
   </p>
-    <div id="linkedListsContainer"></div>
-    <script src="experiment.js"></script>
+    <div id="linkedListsContainer">
+      <?php
+        include("./resulted.php");
+      ?>
+    </div>
+    <!-- <script src="experiment.js"></script> -->
 </body>
 </html>
