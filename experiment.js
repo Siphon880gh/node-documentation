@@ -101,31 +101,64 @@ console.log("\nList 3 from dNode5:");
 console.log(readableStringify(dNode5));
 // HTML PORTION
 function renderNode(node, listNumber, visited = new Set()) {
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     if (visited.has(node))
         return '';
     visited.add(node);
     console.log(`Rendering node: ${node.data.name}`); // Log the node being rendered
     // Determine the class for the node's border color
-    let classList = `node-box list-${listNumber}`;
+    let classList = `node-box list-${listNumber} flex`;
     // Determine if the node is an intersection
     if (node.listMemberships && node.listMemberships.size > 1) {
         classList += ' intersected';
     }
     let content = `<div class="${classList}">`;
-    content += `<strong>${node.data.name}</strong><br>`; // Display the node's name
-    // Check and append text properties if they exist
-    if (node.data.text) {
-        console.log(`Text for ${node.data.name}: ${node.data.text}`); // Log the text
-        content += `${node.data.text}<br>`;
-    }
-    if (node.data.textLeft) {
-        console.log(`TextLeft for ${node.data.name}: ${node.data.textLeft}`); // Log the textLeft
-        content += `${node.data.textLeft}<br>`;
-    }
-    if (node.data.textRight) {
-        console.log(`TextRight for ${node.data.name}: ${node.data.textRight}`); // Log the textRight
-        content += `${node.data.textRight}<br>`;
-    }
+    content += `
+    <div class="node-content">
+      ${!((_b = (_a = node.data) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.length) ? "" : (() => {
+        return `
+                <span class="inner-content">${node.data.name}</span>
+        `;
+    })()}
+    
+      ${!((_d = (_c = node.data) === null || _c === void 0 ? void 0 : _c.text) === null || _d === void 0 ? void 0 : _d.length) ? "" : (() => {
+        return `<div class="node-text">
+                  <i class="fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <span class="inner-content">${node.data.text}</span>
+                </div>
+        `;
+    })()}
+      ${!((_f = (_e = node.data) === null || _e === void 0 ? void 0 : _e.textLeft) === null || _f === void 0 ? void 0 : _f.length) ? "" : (() => {
+        return `<div class="node-textLeft">
+                  <i class="fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <span class="inner-content">${node.data.textLeft}</span>
+                </div>
+        `;
+    })()}
+      ${!((_h = (_g = node.data) === null || _g === void 0 ? void 0 : _g.textRight) === null || _h === void 0 ? void 0 : _h.length) ? "" : (() => {
+        return `<div class="node-textRight">
+                  <i class="fa fa-bell" onclick="event.target.classList.toggle('active');"></i>
+                  <span class="inner-content">${node.data.textRight}</span>
+                </div>
+        `;
+    })()}
+
+    </div>
+    `;
+    // content += `<strong>${node.data.name}</strong><br>`; // Display the node's name
+    // // Check and append text properties if they exist
+    // if (node.data.text) {
+    //   console.log(`Text for ${node.data.name}: ${node.data.text}`); // Log the text
+    //   content += `${node.data.text}<br>`;
+    // }
+    // if (node.data.textLeft) {
+    //   console.log(`TextLeft for ${node.data.name}: ${node.data.textLeft}`); // Log the textLeft
+    //   content += `${node.data.textLeft}<br>`;
+    // }
+    // if (node.data.textRight) {
+    //   console.log(`TextRight for ${node.data.name}: ${node.data.textRight}`); // Log the textRight
+    //   content += `${node.data.textRight}<br>`;
+    // }
     // Render the 'next' nodes recursively
     node.next.forEach(nextNode => {
         if (nextNode) {
